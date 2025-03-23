@@ -1,22 +1,19 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/UI/screens/email_verification_screen.dart';
-import 'package:task_manager/UI/screens/sign_up_screen.dart';
 import 'package:task_manager/UI/screens/utils/app_colors.dart';
 import 'package:task_manager/widgets/screen_background.dart';
 
-class SignInScreen extends StatefulWidget {
-  const SignInScreen({super.key});
+class emailVerificationScreen extends StatefulWidget {
+  const emailVerificationScreen({super.key});
 
-  static const String name = '/sign_in';
+  static const String name = '/email_verification';
 
   @override
-  State<SignInScreen> createState() => _SignInScreenState();
+  State<emailVerificationScreen> createState() => _emailVerificationScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _emailVerificationScreenState extends State<emailVerificationScreen> {
   final TextEditingController _emailTEController = TextEditingController();
-  final TextEditingController _passwordTEController = TextEditingController();  
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -33,7 +30,11 @@ class _SignInScreenState extends State<SignInScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 80,),
-                Text("Get Started With", style: textTheme.titleLarge,),
+                Text("Your Email Address", style: textTheme.titleLarge,),
+                SizedBox(
+                  height: 8,
+                ),
+                 Text("A six digit verification pin will send to your email address", style: textTheme.titleMedium,),
                 SizedBox(
                   height: 24,
                 ),
@@ -42,16 +43,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                    hintText: "Email",
-                  ),
-                ),
-                SizedBox(
-                  height: 8,
-                ),
-                TextFormField(
-                  controller: _passwordTEController,
-                  obscureText: true,
-                  decoration: InputDecoration(
-                   hintText: "Password",
                   ),
                 ),
                 SizedBox(height: 24,),
@@ -63,11 +54,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 Center(
                   child: Column(
                     children: [
-                      TextButton(onPressed: (){
-                        Navigator.pushNamed(context, emailVerificationScreen.name);
-                      }, child: Text("Forgot Password?",),),
-                      
-                      _buildSignUpSection(),
+                      _buildSignInSection(),
                     ],
                   ),
                 ),
@@ -80,22 +67,22 @@ class _SignInScreenState extends State<SignInScreen> {
     );
   }
 
-  Widget _buildSignUpSection (){
+  Widget _buildSignInSection (){
     return RichText(text: TextSpan(
-      text: "Don't have an account? ",
+      text: "Have an account? ",
       style: TextStyle(
         color: Colors.black54,
         fontWeight: FontWeight.w600,
       ),
       children: [
         TextSpan(
-          text: "Sign Up",
+          text: "Sign In",
           style: TextStyle(
             color: AppColors.themeColor,
             fontWeight: FontWeight.bold,
           ),
           recognizer: TapGestureRecognizer()..onTap = (){
-    Navigator.pushNamed(context, SignUpScreen.name);
+    Navigator.pop(context);
           }
         ),
       ]
@@ -105,7 +92,6 @@ class _SignInScreenState extends State<SignInScreen> {
 @override
   void dispose() {
     _emailTEController.dispose();
-    _passwordTEController.dispose();
     super.dispose();
   }
 }

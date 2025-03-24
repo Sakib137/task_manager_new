@@ -1,20 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:task_manager/UI/screens/otp_verification_screen.dart';
+import 'package:task_manager/UI/screens/sign_in_screen.dart';
+
 import 'package:task_manager/UI/screens/utils/app_colors.dart';
 import 'package:task_manager/widgets/screen_background.dart';
 
-class emailVerificationScreen extends StatefulWidget {
-  const emailVerificationScreen({super.key});
+class resetPasswordScreen extends StatefulWidget {
+  const resetPasswordScreen({super.key});
 
-  static const String name = '/email_verification';
+  static const String name = '/reset_password';
 
   @override
-  State<emailVerificationScreen> createState() => _emailVerificationScreenState();
+  State<resetPasswordScreen> createState() => _resetPasswordScreenState();
 }
 
-class _emailVerificationScreenState extends State<emailVerificationScreen> {
+class _resetPasswordScreenState extends State<resetPasswordScreen> {
   final TextEditingController _emailTEController = TextEditingController();
+  final TextEditingController _passwordTEController = TextEditingController();  
+  final TextEditingController _confirmPasswordTEController = TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -31,33 +34,41 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SizedBox(height: 80,),
-                Text("Your Email Address", style: textTheme.titleLarge,),
+                Text("Set Password", style: textTheme.titleLarge,),
                 SizedBox(
                   height: 8,
                 ),
-                 Text("A six digit verification pin will send to your email address", style: textTheme.titleMedium,),
+                Text("Minimum length of password 8 character with letter and number combination", style: textTheme.titleMedium,),
                 SizedBox(
                   height: 24,
                 ),
                 TextFormField(
-                  controller: _emailTEController,
-                  keyboardType: TextInputType.emailAddress,
+                  controller: _passwordTEController,
+                  obscureText: true,
                   decoration: InputDecoration(
-                   hintText: "Email",
+                   hintText: "Password",
+                  ),
+                ),
+                SizedBox(
+                  height: 8,
+                ),
+                TextFormField(
+                  controller: _confirmPasswordTEController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                   hintText: "Confirm Password",
                   ),
                 ),
                 SizedBox(height: 24,),
                 ElevatedButton(
                   
-                  onPressed: (){
-                    Navigator.pushNamed(context, otpVerificationScreen.name);
-                  }, child: Icon(Icons.arrow_circle_right_outlined),),
+                  onPressed: (){}, child: Icon(Icons.arrow_circle_right_outlined),),
                 SizedBox(height: 48,),
             
                 Center(
                   child: Column(
                     children: [
-                      _buildSignInSection(),
+                      _buildSignUpSection(),
                     ],
                   ),
                 ),
@@ -70,7 +81,7 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
     );
   }
 
-  Widget _buildSignInSection (){
+  Widget _buildSignUpSection (){
     return RichText(text: TextSpan(
       text: "Have an account? ",
       style: TextStyle(
@@ -85,7 +96,7 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
             fontWeight: FontWeight.bold,
           ),
           recognizer: TapGestureRecognizer()..onTap = (){
-    Navigator.pop(context);
+    Navigator.pushNamedAndRemoveUntil(context, SignInScreen.name, (value) => false);
           }
         ),
       ]
@@ -94,7 +105,8 @@ class _emailVerificationScreenState extends State<emailVerificationScreen> {
 }
 @override
   void dispose() {
-    _emailTEController.dispose();
+    _passwordTEController.dispose();
+    _confirmPasswordTEController.dispose();
     super.dispose();
   }
 }

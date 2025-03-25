@@ -6,6 +6,7 @@ import 'package:task_manager/UI/screens/sign_in_screen.dart';
 import 'package:task_manager/UI/screens/utils/app_colors.dart';
 import 'package:task_manager/widgets/screen_background.dart';
 
+
 class otpVerificationScreen extends StatefulWidget {
   const otpVerificationScreen({super.key});
 

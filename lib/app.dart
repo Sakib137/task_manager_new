@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:task_manager/UI/screens/add_new_task_screen.dart';
+import 'package:task_manager/UI/screens/cancelled_task_list_screen.dart';
+import 'package:task_manager/UI/screens/completed_task_list_screen.dart';
 import 'package:task_manager/UI/screens/email_verification_screen.dart';
 import 'package:task_manager/UI/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager/UI/screens/new_task_list_screen.dart';
 import 'package:task_manager/UI/screens/otp_verification_screen.dart';
+import 'package:task_manager/UI/screens/progress_task_list_screen.dart';
 import 'package:task_manager/UI/screens/reset_password_screen.dart';
 import 'package:task_manager/UI/screens/sign_in_screen.dart';
 import 'package:task_manager/UI/screens/sign_up_screen.dart';
@@ -95,6 +99,18 @@ class TaskManager extends StatelessWidget {
         }
          else if(settings.name == NewTaskListScreen.name){
           widget = NewTaskListScreen();
+        }
+         else if(settings.name == ProgressTaskListScreen.name){
+          widget = ProgressTaskListScreen();
+        }
+         else if(settings.name == CompletedTaskListScreen.name){
+          widget = CompletedTaskListScreen();
+        }
+         else if(settings.name == CancelledTaskListScreen.name){
+          widget = CancelledTaskListScreen();
+        }
+         else if(settings.name == AddNewTaskScreen.name){
+          widget = AddNewTaskScreen();
         }
 
         return MaterialPageRoute(builder: (_) => widget);

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:task_manager/UI/screens/build_new_task_widget.dart';
+import 'package:task_manager/UI/screens/add_new_task_screen.dart';
+import 'package:task_manager/widgets/build_new_task_widget.dart';
 import 'package:task_manager/widgets/screen_background.dart';
 import 'package:task_manager/widgets/task_item_widget.dart';
 import 'package:task_manager/widgets/tm_app_bar.dart';
@@ -16,7 +17,6 @@ class NewTaskListScreen extends StatefulWidget {
 class _NewTaskListScreenState extends State<NewTaskListScreen> {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
     return Scaffold(
       appBar: TMAppbar(),
 
@@ -25,17 +25,27 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
           child: Column(
             children: [
               buildNewTaskList(),
-              ListView.builder(
-                shrinkWrap: true,
-                primary: false,
-                itemCount: 20,
-                itemBuilder: (context, index){
-                  return taskItemWidget();
-                }
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: ListView.builder(
+                  shrinkWrap: true,
+                  primary: false,
+                  itemCount: 20,
+                  itemBuilder: (context, index){
+                    return taskItemWidget();
+                  }
+                ),
               )
             ],
           ),
         ),
+        
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.pushNamed(context, AddNewTaskScreen.name);
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

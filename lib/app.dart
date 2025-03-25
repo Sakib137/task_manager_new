@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_manager/UI/screens/email_verification_screen.dart';
 import 'package:task_manager/UI/screens/main_bottom_nav_screen.dart';
+import 'package:task_manager/UI/screens/new_task_list_screen.dart';
 import 'package:task_manager/UI/screens/otp_verification_screen.dart';
 import 'package:task_manager/UI/screens/reset_password_screen.dart';
 import 'package:task_manager/UI/screens/sign_in_screen.dart';
@@ -91,6 +92,9 @@ class TaskManager extends StatelessWidget {
         }
         else if(settings.name == MainBottomNavScreen.name){
           widget = MainBottomNavScreen();
+        }
+         else if(settings.name == NewTaskListScreen.name){
+          widget = NewTaskListScreen();
         }
 
         return MaterialPageRoute(builder: (_) => widget);

@@ -11,6 +11,7 @@ import 'package:task_manager/UI/screens/reset_password_screen.dart';
 import 'package:task_manager/UI/screens/sign_in_screen.dart';
 import 'package:task_manager/UI/screens/sign_up_screen.dart';
 import 'package:task_manager/UI/screens/splash_screen.dart';
+import 'package:task_manager/UI/screens/update_profile_screen.dart';
 import 'package:task_manager/UI/screens/utils/app_colors.dart';
 
 class TaskManager extends StatelessWidget {
@@ -61,7 +62,7 @@ class TaskManager extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8),
                   ),
                   fixedSize: Size.fromWidth(double.maxFinite),
-                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+                  padding: EdgeInsets.symmetric(vertical: 16, horizontal: 16),
                   foregroundColor: Colors.white,
                   textStyle: TextStyle(
                     fontSize: 16,
@@ -111,6 +112,9 @@ class TaskManager extends StatelessWidget {
         }
          else if(settings.name == AddNewTaskScreen.name){
           widget = AddNewTaskScreen();
+        }
+        else if(settings.name == UpdateProfileScreen.name){
+          widget = UpdateProfileScreen();
         }
 
         return MaterialPageRoute(builder: (_) => widget);

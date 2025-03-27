@@ -86,14 +86,14 @@ class TaskManager extends StatelessWidget {
         else if(settings.name == SignUpScreen.name){
           widget = SignUpScreen();
         }
-        else if(settings.name == emailVerificationScreen.name){
-          widget = emailVerificationScreen();
+        else if(settings.name == EmailVerificationScreen.name){
+          widget = EmailVerificationScreen();
         }
-        else if(settings.name == otpVerificationScreen.name){
-          widget = otpVerificationScreen();
+        else if(settings.name == OtpVerificationScreen.name){
+          widget = OtpVerificationScreen();
         }
-        else if(settings.name == resetPasswordScreen.name){
-          widget = resetPasswordScreen();
+        else if(settings.name == ResetPasswordScreen.name){
+          widget = ResetPasswordScreen();
         }
         else if(settings.name == MainBottomNavScreen.name){
           widget = MainBottomNavScreen();

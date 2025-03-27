@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class taskStatusSummeryCounter extends StatelessWidget {
-  const taskStatusSummeryCounter({
+class TaskStatusSummeryCounter extends StatelessWidget {
+  const TaskStatusSummeryCounter({
     super.key, required this.count, required this.title,
   });
 

@@ -32,7 +32,7 @@ class _NewTaskListScreenState extends State<NewTaskListScreen> {
                   primary: false,
                   itemCount: 20,
                   itemBuilder: (context, index){
-                    return taskItemWidget();
+                    return TaskItemWidget();
                   }
                 ),
               )

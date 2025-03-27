@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class taskItemWidget extends StatelessWidget {
-  const taskItemWidget({
+class TaskItemWidget extends StatelessWidget {
+  const TaskItemWidget({
     super.key,
   });
 

@@ -29,7 +29,7 @@ class _ProgressTaskListScreenState extends State<ProgressTaskListScreen> {
                   primary: false,
                   itemCount: 20,
                   itemBuilder: (context, index){
-                    return taskItemWidget();
+                    return TaskItemWidget();
                   }
                 ),
               )

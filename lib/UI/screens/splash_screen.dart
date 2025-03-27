@@ -13,28 +13,20 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
     moveToNextScreen();
   }
 
-  Future<void> moveToNextScreen() async{
-    await Future.delayed(Duration(seconds: 2),);
+  Future<void> moveToNextScreen() async {
+    await Future.delayed(Duration(seconds: 2));
+    // ignore: use_build_context_synchronously
     Navigator.pushReplacementNamed(context, SignInScreen.name);
   }
 
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: ScreenBackground(
-        child: Center(
-          child: AppLogo(),
-        ),
-      ),
-    );
+    return Scaffold(body: ScreenBackground(child: Center(child: AppLogo())));
   }
 }
-

@@ -29,7 +29,7 @@ class _CompletedTaskListScreenState extends State<CompletedTaskListScreen> {
                   primary: false,
                   itemCount: 20,
                   itemBuilder: (context, index){
-                    return taskItemWidget();
+                    return TaskItemWidget();
                   }
                 ),
               )

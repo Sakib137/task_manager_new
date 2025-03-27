@@ -8,10 +8,10 @@ SingleChildScrollView buildNewTaskList() {
             padding: const EdgeInsets.all(8.0),
             child: Row(
               children: [
-                taskStatusSummeryCounter( count: "09", title: "New",),
-                taskStatusSummeryCounter( count: "07", title: "Progress",),
-                taskStatusSummeryCounter( count: "08", title: "Completer",),
-                taskStatusSummeryCounter( count: "02", title: "Cancelled",),
+                TaskStatusSummeryCounter( count: "09", title: "New",),
+                TaskStatusSummeryCounter( count: "07", title: "Progress",),
+                TaskStatusSummeryCounter( count: "08", title: "Completer",),
+                TaskStatusSummeryCounter( count: "02", title: "Cancelled",),
               ],
             ),
           ),

@@ -1,10 +1,12 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:task_manager/UI/controllers/auth_controllers.dart';
 import 'package:task_manager/UI/screens/email_verification_screen.dart';
 import 'package:task_manager/UI/screens/main_bottom_nav_screen.dart';
 import 'package:task_manager/UI/screens/sign_up_screen.dart';
 import 'package:task_manager/UI/screens/utils/app_colors.dart';
 import 'package:task_manager/UI/screens/utils/urls.dart';
+import 'package:task_manager/data/models/user_model.dart';
 import 'package:task_manager/data/services/network_caller.dart';
 import 'package:task_manager/widgets/loading_indicator.dart';
 import 'package:task_manager/widgets/screen_background.dart';
@@ -126,6 +128,9 @@ class _SignInScreenState extends State<SignInScreen> {
     );
 
     if (response.isSuccess) {
+      String token = response.responseData!["token"];
+      UserModel userModel = UserModel.fromJson(response.responseData!["data"]);
+      await AuthControllers.saveUserData(token, userModel);
       Navigator.pushReplacementNamed(context, MainBottomNavScreen.name);
     } else {
       _signInProgress = false;

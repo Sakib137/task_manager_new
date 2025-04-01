@@ -26,9 +26,9 @@ class NetworkCaller {
       Uri uri = Uri.parse(url);
       Response response = await get(uri);
 
-      debugPrint("URl = $url");
-      debugPrint("Response Code = $response.statusCode");
-      debugPrint("Response data = $response.body");
+      debugPrint("URl => $url");
+      debugPrint("Response Code => ${response.statusCode}");
+      debugPrint("Response data => ${response.body}");
 
       if (response.statusCode == 200) {
         final decodedResponse = jsonDecode(response.body);
@@ -64,10 +64,10 @@ class NetworkCaller {
         body: jsonEncode(body),
       );
 
-      debugPrint("URl = $url");
-      debugPrint("Body = $body");
-      debugPrint("Response Code = $response.statusCode");
-      debugPrint("Response data = $response.body");
+      debugPrint("URl => $url");
+      debugPrint("Body => $body");
+      debugPrint("Response Code => ${response.statusCode}");
+      debugPrint("Response data => ${response.body}");
 
       if (response.statusCode == 200) {
         final decodedResponse = jsonDecode(response.body);
